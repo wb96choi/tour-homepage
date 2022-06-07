@@ -5,8 +5,9 @@
 :root {
   --main-color: #348e4c;
   --text-color: #333;
-  --heading1: 40px;
-  --heading2: 32px;
+  --heading1: 50px;
+  --heading2: 40px;
+  --base-font-size: 18px;
 }
 
 /* 초기화 */
@@ -14,15 +15,22 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
-  font-size: 100%;
+  font-size: var(--base-font-size);
   font-family: "Noto Sans KR", sans-serif;
   color: var(--text-color);
 }
 html,
 body {
   height: 100%;
+}
+h1 {
+  font-size: var(--heading1);
+}
+h2 {
+  font-size: var(--heading2);
 }
 a {
   text-decoration: none;
@@ -38,7 +46,7 @@ a {
 #main-header > h1 {
   position: absolute;
   left: 20px;
-  top: 5px;
+  top: -13px;
 }
 #main-header > nav {
   position: absolute;
@@ -63,4 +71,70 @@ a {
   width: 100%;
   height: calc(100% - 60px);
   background: #ccc;
+}
+.main .col {
+  width: calc(100% / 4);
+  height: 100%;
+  background: #abc;
+  position: relative;
+}
+.main .col h2 {
+  background: rgba(0, 0, 0, 0.671);
+  text-align: center;
+  color: #fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  /* 중앙수직위치 = 50% - 요소높이 1/2 */
+  /* 109px = h2높이와 패딩값을 더함 */
+  top: calc(50% - 109px / 2);
+}
+
+.main .col h2 span {
+  display: block;
+  font-size: small;
+  font-weight: normal;
+}
+
+.btn_link {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  width: 125px;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  position: absolute;
+  bottom: 120px;
+  left: calc(50% - 124px / 2);
+}
+.btn_link:hover,
+.btn_link:active {
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #000;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+.main .col:first-child {
+  background-image: url(/여행사홈페이지/images/beijing.jpg);
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+}
+.main .col:nth-child(2) {
+  background-image: url(/여행사홈페이지/images/osaka.jpg);
+  background-repeat: no-repeat;
+}
+.main .col:nth-child(3) {
+  background-image: url(/여행사홈페이지/images/hongkong.jpg);
+  background-repeat: no-repeat;
+}
+.main .col:nth-child(4) {
+  background-image: url(/여행사홈페이지/images/bangkok.jpg);
+  background-repeat: no-repeat;
+}
+#section1 {
+  float: left;
 }
